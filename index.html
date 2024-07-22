@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial; cursor: default;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+
+
+.Match__Content {
+            display: flex;
+            justify-content: space-between; /* Aligns items horizontally (center, flex-start, flex-end, space-between, space-around) */
+            align-items: center; /* Aligns items vertically (center, flex-start, flex-end, stretch, baseline) */
+            padding: 10px;
+            background-color: #eceef2;
+            border-radius: 10px;
+            margin-top: 10px;
+}
+
+.Match__Info__Content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+
+.Lisve__Status {
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+.live {
+            background-color: red;
+            color: white;
+        }
+.not-live {
+            background-color: black;
+            color: white;
+        }
+
+
+
+.Match__Content:hover {
+    background-color: green;
+}        
+</style>
+</head>
+<body>
+
+<h2>live</h2>
+
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'live__Match__Tbs')">live</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+</div>
+
+<div id="live__Match__Tbs" class="tabcontent">
+  <h3>live</h3>
+
+  <!----Match 1---->
+  <div class="Match__Content" >
+    
+  
+        <img src="Logo/Logo_FC.png" alt="FC Barcelona" width="75" height="75">
+        FC Barcelona
+ 
+    
+    <div class="Match__Info__Content">
+        
+        <div>18h00</div>
+        <div class="Lisve__Status">Live</div>
+        
+    </div>
+    
+         Real Madrid
+        <img src="Logo/Real Madrid.png" alt="Real Madrid" width="75" height="75"> 
+      
+
+
+    
+</div>
+
+ <!----Match 2---->
+ <div class="Match__Content" >
+    
+  
+  <img src="Logo/Logo_FC.png" alt="FC Barcelona" width="75" height="75">
+  FC Barcelona
+
+
+<div class="Match__Info__Content">
+  
+  <div>18h00</div>
+  <div class="Lisve__Status">Ça n'a pas encore commencé</div>
+  
+</div>
+
+   Real Madrid
+  <img src="Logo/Real Madrid.png" alt="Real Madrid" width="75" height="75"> 
+
+
+
+
+</div>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p> 
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  
+  // Hide all tab content
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Remove "active" class from all tab links
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the specific tab content
+  document.getElementById(cityName).style.display = "block";
+
+  // Add "active" class to the clicked tab link
+  if (evt) {
+    evt.currentTarget.className += " active";
+  }
+}
+
+// Function to initialize the first tab
+function init() {
+  // Get the first tab link and first tab content
+  var firstTabLink = document.getElementsByClassName("tablinks")[0];
+  var firstTabContent = document.getElementsByClassName("tabcontent")[0];
+
+  // Open the first tab by default
+  openCity(null, firstTabContent.id);
+
+  // Add "active" class to the first tab link
+  firstTabLink.className += " active";
+}
+
+// Call init function when the page loads
+window.onload = init;
+
+</script>
+   
+
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+            var statusDivs = document.querySelectorAll('.Lisve__Status');
+            statusDivs.forEach(function(div) {
+                if (div.innerHTML.includes('Live')) {
+                    div.classList.add('live');
+                } else {
+                    div.classList.add('not-live');
+                }
+            });
+        });
+</script>
+
+</body>
+</html> 
